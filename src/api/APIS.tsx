@@ -1,5 +1,3 @@
-import axios from "axios";
+const URL = "https://fakestoreapi.com/auth/login";
 
-export default axios.create({
-  baseURL: "https://633145973ea4956cfb5a0314.mockapi.io/api/v1",
-});
+export default URL;
