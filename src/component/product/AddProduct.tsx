@@ -45,6 +45,12 @@ const AddProduct = () => {
                 <option value="women's clothing">Electronics</option>
               </select>
             </div>
+            <div className="form-outline mb-4">
+              <label className="form-label" htmlFor="form1Example1">
+                Image URL
+              </label>
+              <input type="text" id="form1Example1" className="form-control" />
+            </div>
             <button
               type="submit"
               className="btn btn btn-outline-primary btn-lg"
