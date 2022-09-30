@@ -7,8 +7,7 @@ import {
   Navigate,
 } from "react-router-dom";
 import React, { Suspense, useContext, useState } from "react";
-import Login from "./views/login/Login";
-import Products from "./views/products/Products";
+
 import AuthProvider, { AuthContext } from "./context/AuthContext";
 const LoginIndex = React.lazy(() => import("./views/login/Login"));
 const ProductIndex = React.lazy(() => import("./views/products/Products"));

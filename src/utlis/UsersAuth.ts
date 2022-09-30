@@ -2,7 +2,7 @@ import URL from "../api/APIS";
 import axios from "axios";
 
 const UserAuth = (name: string, password: string) => {
-  const response = axios("https://fakestoreapi.com/auth/login", {
+  const response = axios(URL, {
     method: "POST",
     data: {
       username: name,
