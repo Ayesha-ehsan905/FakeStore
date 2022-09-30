@@ -12,7 +12,7 @@ import AuthProvider, { AuthContext } from "./context/AuthContext";
 import Login from "./views/login/Login";
 import ProductDetail from "./component/product/ProductDetail";
 const LoginIndex = React.lazy(() => import("./views/login/Login"));
-const ProductIndex = React.lazy(() => import("./views/products/Products"));
+const ProductIndex = React.lazy(() => import("./views/products/ProductsView"));
 
 function LogoutCheck({ children }: { children: JSX.Element }) {
   let auth = useContext(AuthContext);
