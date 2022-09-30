@@ -12,6 +12,7 @@ import AuthProvider, { AuthContext } from "./context/AuthContext";
 
 import ProductDetail from "./component/product/ProductDetail";
 import CategoryFilter from "./component/category/CategoryFilter";
+import AddProduct from "./component/product/AddProduct";
 const LoginIndex = React.lazy(() => import("./views/login/Login"));
 const ProductIndex = React.lazy(() => import("./views/products/ProductsView"));
 
@@ -57,6 +58,7 @@ const App: React.FC = () => {
               element={<ProductDetail />}
             />
             <Route path="/category/:category" element={<CategoryFilter />} />
+            <Route path="/addproduct" element={<AddProduct />} />
           </Routes>
         </Router>
       </AuthProvider>
