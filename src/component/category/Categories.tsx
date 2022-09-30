@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { FetchCategories } from "../../utlis/Category";
 import Spinner from "../product/Spinner";
 import "./style.css";
@@ -29,7 +30,9 @@ const Categories = () => {
                     style={{ fontSize: "20px" }}
                     key={item.key}
                   >
-                    {item}
+                    <Link className="nav-link" to={`/category/${item}`}>
+                      {item}
+                    </Link>
                   </li>
                 </>
               );
