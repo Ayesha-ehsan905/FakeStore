@@ -13,5 +13,10 @@ const FetchProduct = (id) => {
   const { data, error } = useSWR(path, fetch);
   return { product: data, isLoading: !error && !data, isError: error };
 };
+const DeleteProduct = (id) => {
+  let path = ProductURL + "/" + id;
+  const { data, error } = useSWR(path, fetch);
+  return { data, error };
+};
 
-export { FetchProducts, FetchProduct };
+export { FetchProducts, FetchProduct, DeleteProduct };

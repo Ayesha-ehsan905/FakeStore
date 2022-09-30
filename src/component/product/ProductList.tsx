@@ -1,11 +1,31 @@
+import axios from "axios";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import Info from "../../icons/info";
 import { FetchProducts } from "../../utlis/Product";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import Spinner from "./Spinner";
 
 const ProductList = () => {
   const { product, isLoading, isError } = FetchProducts();
+
+  const notify = (title: string) => toast(title);
+  const handleOnClick = (id) => {
+    let path = `https://fakestoreapi.com/products/${id}`;
+    axios(path, {
+      method: "DELETE",
+    }).then((Response) => {
+      const data = Response.data;
+      console.log(data);
+      if (data) {
+        notify("Sucessfully deleted the Item!");
+      } else {
+        notify("Error");
+      }
+    });
+  };
 
   if (isError) {
     return (
@@ -23,7 +43,7 @@ const ProductList = () => {
       <>
         {product.map((item) => {
           return (
-            <div className="col-12 col-sm-8 col-md-6 col-lg-4" key={item.id}>
+            <div className="col-12 col-sm-8 col-md-6 col-lg-4" key={item.key}>
               <div className="card text-center mt-5">
                 <img
                   className="card-img rounded mx-auto d-block mt-3 "
@@ -31,7 +51,10 @@ const ProductList = () => {
                   alt="Vans"
                   style={{ width: "200px", height: "200px" }}
                 />
-                <div className="card-img-overlay d-flex justify-content-end">
+                <div
+                  className="card-img-overlay d-flex justify-content-end"
+                  style={{ height: "50px" }}
+                >
                   <Link
                     to={`/productdetails/${item.id}`}
                     className="card-link text-danger like"
@@ -51,9 +74,13 @@ const ProductList = () => {
                     <div className="price text-success">
                       <h5 className="mt-4">${item.price}</h5>
                     </div>
-                    <a href="#" className="btn btn-danger mt-3">
-                      <i className="fas fa-shopping-cart"></i> Delete
-                    </a>
+                    <button
+                      className="btn btn-danger mt-3"
+                      onClick={() => handleOnClick(item.id)}
+                    >
+                      Delete
+                    </button>
+                    <ToastContainer />
                   </div>
                 </div>
               </div>
