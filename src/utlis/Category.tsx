@@ -9,7 +9,6 @@ const FetchCategories = () => {
   return { category: data, isLoading: !error && !data, isError: error };
 };
 const Fetchcategory = (id) => {
-  // console.log(id, "id of category");
   let path = CategorySpecificURL + "/" + id;
   const { data, error } = useSWR(path, fetch);
   return { category: data, isLoading: !error && !data, isError: error };

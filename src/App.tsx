@@ -9,7 +9,7 @@ import {
 import React, { Suspense, useContext, useState } from "react";
 
 import AuthProvider, { AuthContext } from "./context/AuthContext";
-import Login from "./views/login/Login";
+
 import ProductDetail from "./component/product/ProductDetail";
 import CategoryFilter from "./component/category/CategoryFilter";
 const LoginIndex = React.lazy(() => import("./views/login/Login"));
