@@ -18,8 +18,6 @@ export default function Products() {
               </figure>
             </div>
 
-            {/* <div className="container"> */}
-            {/* <div className="row"> */}
             <ProductList />
           </div>
         </div>

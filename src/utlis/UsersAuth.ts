@@ -1,4 +1,4 @@
-import URL from "../api/APIS";
+import { URL } from "../api/APIS";
 import axios from "axios";
 
 const UserAuth = (name: string, password: string) => {
@@ -9,7 +9,6 @@ const UserAuth = (name: string, password: string) => {
       password: password,
     },
   });
-  console.log("from user", response);
   return response;
 };
 

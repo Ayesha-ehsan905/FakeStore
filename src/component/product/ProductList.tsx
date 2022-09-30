@@ -1,8 +1,11 @@
-import { FetchProduct } from "../../utlis/Product";
+import { Link } from "react-router-dom";
+import Info from "../../icons/info";
+import { FetchProducts } from "../../utlis/Product";
+
 import Spinner from "./Spinner";
 
 const ProductList = () => {
-  const { product, isLoading, isError } = FetchProduct();
+  const { product, isLoading, isError } = FetchProducts();
 
   if (isError) {
     return (
@@ -28,11 +31,14 @@ const ProductList = () => {
                   alt="Vans"
                   style={{ width: "200px", height: "200px" }}
                 />
-                {/* <div className="card-img-overlay d-flex justify-content-end">
-                  <a href="#" className="card-link text-danger like">
-                    <i className="fas fa-heart"></i>
-                  </a>
-                </div> */}
+                <div className="card-img-overlay d-flex justify-content-end">
+                  <Link
+                    to={`/productdetails/${item.id}`}
+                    className="card-link text-danger like"
+                  >
+                    <Info />
+                  </Link>
+                </div>
                 <div className="card-body">
                   <h4 className="card-title">{item.title}</h4>
                   <h6 className="card-subtitle mb-2 ">

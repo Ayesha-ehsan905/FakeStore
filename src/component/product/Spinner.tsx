@@ -1,6 +1,9 @@
 const Spinner = () => {
   return (
-    <div className="spinner-border" role="status">
+    <div
+      className="spinner-border text-center justify-content-center align-items-center"
+      role="status"
+    >
       <span className="visually-hidden">Loading...</span>
     </div>
   );

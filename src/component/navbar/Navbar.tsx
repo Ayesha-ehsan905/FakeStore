@@ -1,4 +1,3 @@
-import React from "react";
 import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
@@ -8,7 +7,6 @@ const Navbar = () => {
   const authcontext = useContext(AuthContext);
   const token = authcontext.token;
   const signOut = authcontext.signOut;
-  console.log("navbar token", token);
 
   const handleLogout = () => {
     signOut(() => {

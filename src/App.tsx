@@ -9,6 +9,8 @@ import {
 import React, { Suspense, useContext, useState } from "react";
 
 import AuthProvider, { AuthContext } from "./context/AuthContext";
+import Login from "./views/login/Login";
+import ProductDetail from "./component/product/ProductDetail";
 const LoginIndex = React.lazy(() => import("./views/login/Login"));
 const ProductIndex = React.lazy(() => import("./views/products/Products"));
 
@@ -47,6 +49,11 @@ const App: React.FC = () => {
                   <LoginIndex />
                 </Suspense>
               }
+            />
+
+            <Route
+              path="/productdetails/:productId"
+              element={<ProductDetail />}
             />
           </Routes>
         </Router>
