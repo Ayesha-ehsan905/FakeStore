@@ -8,5 +8,14 @@ const Schema = yup.object().shape({
   Description: yup.string().required(),
   Image: yup.string().required(),
 });
+const AddPorduct = yup.object().shape({
+  Title: yup.string().required(),
+  Price: yup.number().required().min(0.0).max(1000),
+  Category: yup.string().required(),
+  Description: yup.string().required(),
+  Image: yup.string().required(),
+});
+
+export { AddPorduct };
 
 export default Schema;

@@ -19,4 +19,24 @@ const DeleteProduct = (id) => {
   return { data, error };
 };
 
-export { FetchProducts, FetchProduct, DeleteProduct };
+const AddProducts = async (
+  title: string,
+  descp: string,
+  category: string,
+  image: string,
+  price: number
+) => {
+  const response = await axios(ProductURL, {
+    method: "POST",
+    data: {
+      title: title,
+      description: descp,
+      category: category,
+      image: image,
+      price: price,
+    },
+  });
+  return response;
+};
+
+export { FetchProducts, FetchProduct, DeleteProduct, AddProducts };
