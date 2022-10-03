@@ -10,7 +10,7 @@ const Cart = () => {
   const dispatch = useDispatch();
 
   function TotalPrice(price, qty) {
-    return Number(price * qty);
+    return Number(price * qty).toLocaleString("en-US");
   }
   return (
     <div className="row">
