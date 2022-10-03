@@ -6,8 +6,8 @@ import Cart from "../../icons/Cart";
 const Navbar = () => {
   const navigate = useNavigate();
   const authcontext = useContext(AuthContext);
-  const token = authcontext.token;
-  const signOut = authcontext.signOut;
+  const token = authcontext?.token;
+  const signOut = authcontext?.signOut;
 
   const handleLogout = () => {
     signOut(() => {

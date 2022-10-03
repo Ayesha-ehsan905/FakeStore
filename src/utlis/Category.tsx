@@ -4,14 +4,14 @@ import { CategorySpecificURL, CategoryURL } from "../api/APIS";
 
 const fetch = (url) => axios.get(url).then((res) => res.data);
 
-const FetchCategories = () => {
+const useFetchCategories = () => {
   const { data, error } = useSWR(CategoryURL, fetch);
   return { category: data, isLoading: !error && !data, isError: error };
 };
-const Fetchcategory = (id) => {
+const useFetchcategory = (id) => {
   let path = CategorySpecificURL + "/" + id;
   const { data, error } = useSWR(path, fetch);
   return { category: data, isLoading: !error && !data, isError: error };
 };
 
-export { FetchCategories, Fetchcategory };
+export { useFetchCategories, useFetchcategory };

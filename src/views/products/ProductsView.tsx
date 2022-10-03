@@ -6,7 +6,7 @@ import { AuthContext } from "../../context/AuthContext";
 
 export default function Products() {
   const auth = useContext(AuthContext);
-  const token = auth.token;
+  const token = auth?.token;
 
   return (
     <>

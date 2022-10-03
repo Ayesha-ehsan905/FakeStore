@@ -3,14 +3,14 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Schema from "../../utlis/Schema";
 import { useContext, useState } from "react";
-import UserAuth from "../../utlis/UsersAuth";
+import useUserAuth from "../../utlis/UsersAuth";
 import { AuthContext } from "../../context/AuthContext";
 import { Navigate, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const { signIn } = useContext(AuthContext);
   const auth = useContext(AuthContext);
-  const token = auth.token;
+  const token = auth?.token;
   const [userName, setUserName] = useState("");
   const [Password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -23,7 +23,7 @@ const Login = () => {
   });
 
   const onSubmit = () => {
-    UserAuth(userName, Password)
+    useUserAuth(userName, Password)
       .then((Response) => {
         const token = Response.data.token;
         signIn(token, () => {

@@ -19,9 +19,9 @@ const CartIndex = React.lazy(() => import("./views/cart/Cart"));
 
 function LogoutCheck({ children }: { children: JSX.Element }) {
   let auth = useContext(AuthContext);
-  let location = useLocation();
 
-  if (auth.token == null) {
+  let location = useLocation();
+  if (auth?.token == null) {
     return <Navigate to="/login" state={{ from: location }} replace />;
   }
 

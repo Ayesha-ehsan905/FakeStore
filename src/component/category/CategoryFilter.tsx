@@ -1,13 +1,13 @@
 import { Link, useParams } from "react-router-dom";
 import Info from "../../icons/info";
-import { Fetchcategory } from "../../utlis/Category";
+import { useFetchcategory } from "../../utlis/Category";
 import Spinner from "../product/Spinner";
 import CatProductList from "./CatProductList";
 
 const CategoryFilter = () => {
   const params = useParams();
 
-  const { category, isLoading, isError } = Fetchcategory(params.category);
+  const { category, isLoading, isError } = useFetchcategory(params.category);
 
   if (isError) {
     return (

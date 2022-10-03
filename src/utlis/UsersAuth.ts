@@ -1,7 +1,7 @@
 import { URL } from "../api/APIS";
 import axios from "axios";
 
-const UserAuth = (name: string, password: string) => {
+const useUserAuth = (name: string, password: string) => {
   const response = axios(URL, {
     method: "POST",
     data: {
@@ -12,4 +12,4 @@ const UserAuth = (name: string, password: string) => {
   return response;
 };
 
-export default UserAuth;
+// export default useUserAuth;

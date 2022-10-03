@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
-import { FetchCategories } from "../../utlis/Category";
+import { useFetchCategories } from "../../utlis/Category";
 import Spinner from "../product/Spinner";
 import "./style.css";
 
 const Categories = () => {
-  const { category, isLoading, isError } = FetchCategories();
+  const { category, isLoading, isError } = useFetchCategories();
 
   if (isError) {
     return (

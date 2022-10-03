@@ -1,10 +1,10 @@
 import { Link, useParams } from "react-router-dom";
-import { FetchProduct } from "../../utlis/Product";
+import { useFetchProduct } from "../../utlis/Product";
 import Spinner from "./Spinner";
 
 const ProductDetail = () => {
   const params = useParams();
-  const { product, isLoading, isError } = FetchProduct(params.productId);
+  const { product, isLoading, isError } = useFetchProduct(params.productId);
   if (isError) {
     return (
       <div className="container">

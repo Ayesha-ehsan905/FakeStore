@@ -4,22 +4,17 @@ import { ProductURL } from "../api/APIS";
 
 const fetch = (url) => axios.get(url).then((res) => res.data);
 
-const FetchProducts = () => {
+const useFetchProducts = () => {
   const { data, error } = useSWR(ProductURL, fetch);
   return { product: data, isLoading: !error && !data, isError: error };
 };
-const FetchProduct = (id) => {
+const useFetchProduct = (id) => {
   let path = ProductURL + "/" + id;
   const { data, error } = useSWR(path, fetch);
   return { product: data, isLoading: !error && !data, isError: error };
 };
-const DeleteProduct = (id) => {
-  let path = ProductURL + "/" + id;
-  const { data, error } = useSWR(path, fetch);
-  return { data, error };
-};
 
-const AddProducts = async (
+const useAddProducts = async (
   title: string,
   descp: string,
   category: string,
@@ -39,4 +34,4 @@ const AddProducts = async (
   return response;
 };
 
-export { FetchProducts, FetchProduct, DeleteProduct, AddProducts };
+export { useFetchProducts, useFetchProduct, useAddProducts };

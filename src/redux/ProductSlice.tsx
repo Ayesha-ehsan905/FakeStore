@@ -1,12 +1,12 @@
 // src/redux/cartSlice.js
 import { createSlice } from "@reduxjs/toolkit";
-import { FetchCart } from "../utlis/CartFetch";
+import { useFetchCart } from "../utlis/CartFetch";
 
-const { ListCart, isLoading, isError } = FetchCart();
+const { listCart, isLoading, isError } = useFetchCart();
 const cartSlice = createSlice({
   name: "cart",
   initialState: {
-    cart: ListCart,
+    cart: listCart,
   },
   reducers: {
     incrementQuantity: (state, action) => {

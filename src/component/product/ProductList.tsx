@@ -2,14 +2,14 @@ import axios from "axios";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Info from "../../icons/info";
-import { FetchProducts } from "../../utlis/Product";
+import { useFetchProducts } from "../../utlis/Product";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import Spinner from "./Spinner";
 
 const ProductList = () => {
-  const { product, isLoading, isError } = FetchProducts();
+  const { product, isLoading, isError } = useFetchProducts();
 
   const notify = (title: string) => toast(title);
   const handleOnClick = (id) => {

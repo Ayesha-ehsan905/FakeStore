@@ -1,9 +1,9 @@
 import React from "react";
 import Spinner from "../../component/product/Spinner";
-import { FetchCart } from "../../utlis/CartFetch";
+import { useFetchCart } from "../../utlis/CartFetch";
 
 const Cart = () => {
-  const { ListCart, isLoading, isError } = FetchCart();
+  const { listCart, isLoading, isError } = useFetchCart();
 
   if (isError) {
     return (
@@ -30,7 +30,7 @@ const Cart = () => {
               </tr>
             </thead>
             <tbody>
-              {ListCart.map((item, key) => {
+              {listCart.map((item, key) => {
                 return (
                   <>
                     {item.products.map((items, key) => {

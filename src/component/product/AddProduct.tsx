@@ -4,7 +4,7 @@ import { AddPorduct } from "../../utlis/Schema";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useState } from "react";
-import { AddProducts, FetchProducts } from "../../utlis/Product";
+import { useAddProducts, useFetchProducts } from "../../utlis/Product";
 import { mutate } from "swr";
 import { ProductURL } from "../../api/APIS";
 
@@ -12,7 +12,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const AddProduct = () => {
-  const { product } = FetchProducts();
+  const { product } = useFetchProducts();
 
   const [title, settitle] = useState("");
   const [descp, setdescp] = useState("");
@@ -30,7 +30,7 @@ const AddProduct = () => {
   const onSubmit = async () => {
     // let Response = "";
     console.log("submitted");
-    const response = await AddProducts(title, descp, category, image, price);
+    const response = await useAddProducts(title, descp, category, image, price);
     mutate(ProductURL, [...product, response.data], false);
 
     if (response.data) {
