@@ -1,29 +1,41 @@
 // src/redux/cartSlice.js
 import { createSlice } from "@reduxjs/toolkit";
-import { useFetchCart } from "../utlis/CartFetch";
+import { useFetchProducts } from "../utlis/Product";
 
-const { listCart, isLoading, isError } = useFetchCart();
+const initialState = {
+  cart: [],
+
+  product: [],
+  numberCart: 0,
+};
 const cartSlice = createSlice({
   name: "cart",
-  initialState: {
-    cart: listCart,
-  },
+  initialState,
   reducers: {
-    incrementQuantity: (state, action) => {
-      const item = state.cart.find((item) => item.id === action.payload);
-      item.quantity++;
-    },
-    decrementQuantity: (state, action) => {
-      const item = state.cart.find((item) => item.id === action.payload);
-      if (item.quantity === 1) {
-        item.quantity = 1;
+    AddToCart: (state, action) => {
+      // if (state.numberCart == 0) {
+      //   let cart = {
+      //     id: action.payload.id,
+      //     quantity: 1,
+      //     name: action.payload.name,
+      //     image: action.payload.image,
+      //     price: action.payload.price,
+      //   };
+      //   state.Carts.push(cart);
+      //   state.numberCart += 1;
+      // }
+      const itemInCart = state.cart.find(
+        (item) => item.id === action.payload.id
+      );
+      if (itemInCart) {
+        itemInCart.quantity++;
       } else {
-        item.quantity--;
+        state.cart.push({ ...action.payload, quantity: 1 });
       }
     },
   },
 });
 
-export const { incrementQuantity, decrementQuantity } = cartSlice.actions;
+export const { AddToCart } = cartSlice.actions;
 
 export default cartSlice.reducer;

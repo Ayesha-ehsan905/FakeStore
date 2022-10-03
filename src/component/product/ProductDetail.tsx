@@ -1,8 +1,11 @@
 import { Link, useParams } from "react-router-dom";
 import { useFetchProduct } from "../../utlis/Product";
 import Spinner from "./Spinner";
+import { AddToCart } from "../../redux/ProductSlice";
+import { useDispatch } from "react-redux";
 
 const ProductDetail = () => {
+  const dispatch = useDispatch();
   const params = useParams();
   const { product, isLoading, isError } = useFetchProduct(params.productId);
   if (isError) {
@@ -62,6 +65,17 @@ const ProductDetail = () => {
                 <p className="card-text" style={{ padding: "5px" }}>
                   {product.description}
                 </p>
+                <button
+                  className="btn btn-outline-success "
+                  style={{
+                    marginTop: "15px",
+                    marginBottom: "20px",
+                    marginRight: "30px",
+                  }}
+                  onClick={() => dispatch(AddToCart(product))}
+                >
+                  Add To Cart
+                </button>
                 <button
                   className="btn btn-outline-success "
                   style={{ marginTop: "15px", marginBottom: "20px" }}

@@ -13,6 +13,7 @@ import AuthProvider, { AuthContext } from "./context/AuthContext";
 import ProductDetail from "./component/product/ProductDetail";
 import CategoryFilter from "./component/category/CategoryFilter";
 import AddProduct from "./component/product/AddProduct";
+import Cart from "./views/cart/Cart";
 const LoginIndex = React.lazy(() => import("./views/login/Login"));
 const ProductIndex = React.lazy(() => import("./views/products/ProductsView"));
 const CartIndex = React.lazy(() => import("./views/cart/Cart"));

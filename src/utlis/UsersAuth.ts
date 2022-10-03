@@ -12,4 +12,4 @@ const useUserAuth = (name: string, password: string) => {
   return response;
 };
 
-// export default useUserAuth;
+export default useUserAuth;
