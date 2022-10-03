@@ -4,6 +4,7 @@ import {
   decrementQuantity,
   removeItem,
 } from "../../redux/ProductSlice";
+import { connect } from "react-redux";
 const Cart = () => {
   const carts = useSelector((state) => state.cart.cart);
   const dispatch = useDispatch();

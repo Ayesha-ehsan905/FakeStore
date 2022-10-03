@@ -40,6 +40,8 @@ const cartSlice = createSlice({
       }
     },
     removeItem: (state, action) => {
+      let quantity_ = state.cart[action.payload].quantity;
+      state.numberCart = state.numberCart - quantity_;
       const removeItem = state.cart.filter(
         (item) => item.id !== action.payload
       );
