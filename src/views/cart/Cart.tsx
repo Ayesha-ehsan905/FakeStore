@@ -1,6 +1,12 @@
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  incrementQuantity,
+  decrementQuantity,
+  removeItem,
+} from "../../redux/ProductSlice";
 const Cart = () => {
   const carts = useSelector((state) => state.cart.cart);
+  const dispatch = useDispatch();
   return (
     <div className="row">
       <div className="col-md-12">
@@ -20,7 +26,13 @@ const Cart = () => {
               return (
                 <tr key={key}>
                   <td>
-                    <i className="badge badge-danger">X</i>
+                    <i
+                      className="badge badge-light"
+                      style={{ color: "black" }}
+                      onClick={() => dispatch(removeItem(item.id))}
+                    >
+                      X
+                    </i>
                   </td>
                   <td>{item.title}</td>
                   <td>
@@ -31,11 +43,19 @@ const Cart = () => {
                   </td>
                   <td>{item.price} $</td>
                   <td>
-                    <span className="btn btn-primary" style={{ margin: "2px" }}>
+                    <span
+                      className="btn btn-primary"
+                      style={{ margin: "2px" }}
+                      onClick={() => dispatch(decrementQuantity(item.id))}
+                    >
                       -
                     </span>
                     <span className="btn btn-info">{item.quantity}</span>
-                    <span className="btn btn-primary" style={{ margin: "2px" }}>
+                    <span
+                      className="btn btn-primary"
+                      style={{ margin: "2px" }}
+                      onClick={() => dispatch(incrementQuantity(item.id))}
+                    >
                       +
                     </span>
                   </td>

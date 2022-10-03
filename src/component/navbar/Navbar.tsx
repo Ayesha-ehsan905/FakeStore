@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 import Cart from "../../icons/Cart";
@@ -8,6 +9,7 @@ const Navbar = () => {
   const authcontext = useContext(AuthContext);
   const token = authcontext?.token;
   const signOut = authcontext?.signOut;
+  const count = useSelector((state) => state.cart.numberCart);
 
   const handleLogout = () => {
     signOut(() => {
@@ -54,7 +56,7 @@ const Navbar = () => {
                 className="text-success h4 mt-5"
                 style={{ marginRight: "30px" }}
               >
-                :5
+                {count}
               </span>
             </Link>
 
