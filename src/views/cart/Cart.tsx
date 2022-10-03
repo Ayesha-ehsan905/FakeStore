@@ -4,10 +4,14 @@ import {
   decrementQuantity,
   removeItem,
 } from "../../redux/ProductSlice";
-import { connect } from "react-redux";
+
 const Cart = () => {
   const carts = useSelector((state) => state.cart.cart);
   const dispatch = useDispatch();
+
+  function TotalPrice(price, qty) {
+    return Number(price * qty);
+  }
   return (
     <div className="row">
       <div className="col-md-12">
@@ -60,6 +64,7 @@ const Cart = () => {
                       +
                     </span>
                   </td>
+                  <td>{TotalPrice(item.price, item.quantity)} $</td>
                 </tr>
               );
             })}

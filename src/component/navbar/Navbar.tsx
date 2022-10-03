@@ -9,7 +9,16 @@ const Navbar = () => {
   const authcontext = useContext(AuthContext);
   const token = authcontext?.token;
   const signOut = authcontext?.signOut;
-  const count = useSelector((state) => state.cart.numberCart);
+
+  const cart = useSelector((state) => state.cart).cart;
+  console.log(cart);
+  const getTotalQuantity = () => {
+    let total = 0;
+    cart.forEach((item) => {
+      total += item.quantity;
+    });
+    return total;
+  };
 
   const handleLogout = () => {
     signOut(() => {
@@ -56,7 +65,7 @@ const Navbar = () => {
                 className="text-success h4 mt-5"
                 style={{ marginRight: "30px" }}
               >
-                {count}
+                {getTotalQuantity() || 0}
               </span>
             </Link>
 
