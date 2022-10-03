@@ -5,10 +5,10 @@ const CatProductList = (props) => {
   const category = props.Category;
   return (
     <>
-      {category.map((item) => {
+      {category.map((item, key) => {
         return (
           <>
-            <div className="col-12 col-sm-8 col-md-6 col-lg-4" key={item.id}>
+            <div className="col-12 col-sm-8 col-md-6 col-lg-4" key={key}>
               <div className="card text-center mt-5">
                 <img
                   className="card-img rounded mx-auto d-block mt-3 "

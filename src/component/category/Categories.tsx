@@ -22,19 +22,19 @@ const Categories = () => {
       <>
         <div className="card mt-5" style={{ width: "18rem" }}>
           <ul className="list-group list-group-flush">
-            {category.map((item) => {
+            {category.map((item, key) => {
               return (
-                <>
+                <div key={key}>
                   <li
                     className="list-group-item text-lg-start text-capitalize font-italic font-weight-bold hover"
                     style={{ fontSize: "20px" }}
-                    key={item.key}
+                    key={key}
                   >
                     <Link className="nav-link" to={`/category/${item}`}>
                       {item}
                     </Link>
                   </li>
-                </>
+                </div>
               );
             })}
           </ul>

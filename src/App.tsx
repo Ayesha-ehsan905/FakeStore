@@ -15,6 +15,7 @@ import CategoryFilter from "./component/category/CategoryFilter";
 import AddProduct from "./component/product/AddProduct";
 const LoginIndex = React.lazy(() => import("./views/login/Login"));
 const ProductIndex = React.lazy(() => import("./views/products/ProductsView"));
+const CartIndex = React.lazy(() => import("./views/cart/Cart"));
 
 function LogoutCheck({ children }: { children: JSX.Element }) {
   let auth = useContext(AuthContext);
@@ -59,6 +60,7 @@ const App: React.FC = () => {
             />
             <Route path="/category/:category" element={<CategoryFilter />} />
             <Route path="/addproduct" element={<AddProduct />} />
+            <Route path="/cart" element={<CartIndex />} />
           </Routes>
         </Router>
       </AuthProvider>

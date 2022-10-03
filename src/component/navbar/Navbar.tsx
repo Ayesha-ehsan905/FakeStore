@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
+import Cart from "../../icons/Cart";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -43,6 +44,20 @@ const Navbar = () => {
                 {/* </a> */}
               </li>
             </ul>
+            <Link
+              to="/cart"
+              className="card-link text-success like nav-link mr-4"
+            >
+              <Cart />
+
+              <span
+                className="text-success h4 mt-5"
+                style={{ marginRight: "30px" }}
+              >
+                :5
+              </span>
+            </Link>
+
             {token == null ? (
               <button className="btn btn-outline-success" type="submit">
                 <Link to="/login" className="nav-link">
