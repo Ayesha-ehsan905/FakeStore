@@ -9,9 +9,17 @@ const Cart = () => {
   const carts = useSelector((state) => state.cart.cart);
   const dispatch = useDispatch();
 
-  function TotalPrice(price, qty) {
+  const TotalPrice = (price, qty) => {
     return Number(price * qty).toLocaleString("en-US");
-  }
+  };
+
+  const getTotalQuantity = () => {
+    let total = 0;
+    carts.forEach((item) => {
+      total += item.quantity;
+    });
+    return total;
+  };
   return (
     <div className="row">
       <div className="col-md-12">
@@ -27,7 +35,7 @@ const Cart = () => {
             </tr>
           </thead>
           <tbody>
-            {carts.map((item, key) => {
+            {carts?.map((item, key) => {
               return (
                 <tr key={key}>
                   <td>
@@ -68,6 +76,13 @@ const Cart = () => {
                 </tr>
               );
             })}
+
+            <tr>
+              <td colSpan="5" className="h3 ">
+                Total Carts
+              </td>
+              <td className="h5">{getTotalQuantity() || 0} Items</td>
+            </tr>
           </tbody>
         </table>
       </div>

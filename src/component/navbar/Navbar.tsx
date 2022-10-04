@@ -11,7 +11,7 @@ const Navbar = () => {
   const signOut = authcontext?.signOut;
 
   const cart = useSelector((state) => state.cart).cart;
-  console.log(cart);
+
   const getTotalQuantity = () => {
     let total = 0;
     cart.forEach((item) => {
@@ -48,11 +48,9 @@ const Navbar = () => {
           <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                {/* <a className="nav-link active" aria-current="page" href="#"> */}
                 <Link to="/" className="nav-link">
                   Product
                 </Link>
-                {/* </a> */}
               </li>
             </ul>
             <Link
